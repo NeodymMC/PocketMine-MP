@@ -334,12 +334,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pmmp/BedrockProtocol.git",
-                "reference": "c572706cf5e3202718dd35a35dd30fe08cd671de"
+                "reference": "098313366d4dff8a0252efc022066e31aa6516ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pmmp/BedrockProtocol/zipball/c572706cf5e3202718dd35a35dd30fe08cd671de",
-                "reference": "c572706cf5e3202718dd35a35dd30fe08cd671de",
+                "url": "https://api.github.com/repos/pmmp/BedrockProtocol/zipball/098313366d4dff8a0252efc022066e31aa6516ef",
+                "reference": "098313366d4dff8a0252efc022066e31aa6516ef",
                 "shasum": ""
             },
             "require": {
