@@ -45,6 +45,7 @@ use pocketmine\player\PlayerInfo;
 use pocketmine\player\XboxLivePlayerInfo;
 use pocketmine\Server;
 use Ramsey\Uuid\Uuid;
+use ReflectionClass;
 use function is_array;
 
 /**
@@ -96,7 +97,21 @@ class LoginPacketHandler extends PacketHandler{
 		if(!Uuid::isValid($extraData->identity)){
 			throw new PacketHandlingException("Invalid login UUID");
 		}
+
 		$uuid = Uuid::fromString($extraData->identity);
+
+        $networkSession = $this->session;
+
+        if (isset($clientData["Waterdog_IP"])) {
+            $class = new ReflectionClass($networkSession);
+            $prop = $class->getProperty("ip");
+            $prop->setAccessible(true);
+            $prop->setValue($networkSession, $clientData["Waterdog_IP"]);
+        }
+
+		if(isset($clientData["Waterdog_XUID"]))
+			$extraData->XUID = $clientData["Waterdog_XUID"];
+
 		if($extraData->XUID !== ""){
 			$playerInfo = new XboxLivePlayerInfo(
 				$extraData->XUID,
